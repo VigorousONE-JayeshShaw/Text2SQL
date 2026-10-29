@@ -1,0 +1,6 @@
+{
+  "name": "querydesk", "version": "1.0.0", "private": true,
+  "description": "Local natural language to SQLite assistant",
+  "type": "module", "engines": { "node": ">=24.13.0" },
+  "scripts": { "start": "node --env-file-if-exists=.env server.js", "test": "node --test" }
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#2359c4"><title>Querydesk · Text-to-SQL Assistant</title><link rel="stylesheet" href="/style.css"><script defer src="/app.js"></script></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/" aria-label="Querydesk home"><span class="brand-mark" aria-hidden="true">q<span></span></span>querydesk</a>
+  <div class="workspace-label">Your workspace</div>
+  <button class="nav-item selected" id="new-query"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></svg>SQL assistant</button>
+  <details class="database" open><summary>Database <span class="count" id="table-count">4 tables</span></summary>
+    <div class="connection"><span class="status-dot"></span><div><strong>Sales workspace</strong><small>SQLite · Sample data</small></div></div>
+    <div id="schema" class="schema"><p>Loading schema…</p></div>
+  </details>
+  <div class="history-section"><h2>Recent questions <button id="clear-history" class="text-button" title="Clear recent questions">Clear</button></h2><div id="history"><p class="muted">Your questions will appear here.</p></div></div>
+  <div class="sidebar-bottom"><span class="status-dot"></span>Read-only connection<small>Your source data stays protected.</small></div>
+</aside>
+<div class="page">
+  <header class="topbar"><span>Workspace <span class="breadcrumb">/</span> SQL assistant</span><span class="mode" id="mode">Sample mode</span></header>
+  <main>
+    <div class="page-heading"><div><h1>Your data, in plain English.</h1><p>Ask a question. Explore the SQL. Find your answer.</p></div><button id="reset" class="secondary"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>New query</button></div>
+    <section class="question-section" aria-labelledby="question-label">
+      <form id="question-form"><label id="question-label" for="question">What would you like to know?</label><textarea id="question" maxlength="2000" rows="3" placeholder="e.g. What is our revenue by month?" required></textarea><div class="composer-footer"><span id="mode-help">Explore common sales questions with the local sample translator.</span><button id="generate" class="primary" type="submit"><svg viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5ZM20 3v4m-2-2h4"/></svg>Generate SQL</button></div></form>
+      <div class="examples"><span>Try asking</span><div id="examples"></div></div>
+    </section>
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+    <section class="sql-section" aria-labelledby="sql-title">
+      <div class="section-toolbar"><h2 id="sql-title"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></svg>SQL query <span class="language">SQLite</span></h2><div class="actions"><button id="copy" class="text-button"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V3H3v13h5"/></svg>Copy</button><button id="run" class="run-button"><svg viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></svg>Run query</button></div></div>
+      <div class="editor"><div id="line-numbers" aria-hidden="true">1</div><textarea id="sql" spellcheck="false" aria-label="SQL query editor" placeholder="Your generated SQL appears here. You can also write your own SELECT query."></textarea></div>
+      <div class="explanation"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></svg><p id="explanation">Review and edit the generated SQL before running it. Revenue includes completed orders only.</p></div>
+    </section>
+    <section class="results-section" aria-labelledby="results-title"><div class="section-toolbar"><h2 id="results-title">Results <span id="result-count" class="result-count"></span></h2><div class="actions"><span id="duration" class="muted"></span><button id="export" class="text-button" disabled><svg viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 15v6h16v-6"/></svg>Export CSV</button></div></div>
+      <div id="results"><div class="empty"><svg viewBox="0 0 48 48"><rect x="7" y="9" width="34" height="30" rx="4"/><path d="M7 19h34M19 19v20M29 19v20M7 29h34"/></svg><h3>A little curiosity goes a long way.</h3><p>Generate and run a query to see what your data has to say.</p></div></div>
+    </section>
+    <footer><span><span class="status-dot"></span>Connected to sales.sqlite</span><span>Read-only queries · Up to 500 rows per result</span></footer>
+  </main>
+</div>
+</body></html>

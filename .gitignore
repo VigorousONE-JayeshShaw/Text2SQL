@@ -1,0 +1,15 @@
+node_modules/
+.env
+.env.*
+!.env.example
+data/
+*.log
+*.sqlite
+*.sqlite-*
+*.db
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
